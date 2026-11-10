@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campusly | Calendar</title>
+</head>
+<body>
+  <header>
+  <table width="100%" cellpadding="12" cellspacing="0">
+    <tr>
+      <td width="25%" valign="middle"><a href="index.html"><img src="assets/campusly-logo.png" alt="Campusly logo" width="65" height="45"></a> <big><b>Campusly</b></big></td>
+      <td width="28%" valign="middle"><form action="index.html#feed" method="get"><label for="search">Search:</label> <input id="search" name="q" type="search" placeholder="Search posts"> <button type="submit">Search</button></form></td>
+      <td valign="middle"><nav><a href="index.html">Home</a> &nbsp; | &nbsp; <a href="todo.html">To Do</a> &nbsp; | &nbsp; <a href="calendar.html">Calendar</a></nav></td>
+      <td align="right" valign="middle"><a href="login.html">Log In</a></td>
+    </tr>
+  </table>
+  <hr>
+  </header>
+  <main>
+    <table width="100%" border="1" cellpadding="15" cellspacing="8">
+      <tr>
+        <td valign="top">
+          <h1>Calendar</h1>
+          <hr>
+          <h2>November 2026</h2>
+          <p><a href="calendar.html" aria-current="page"><b>Month</b></a> | <a href="calendar-week.html">Week</a></p>
+          <table border="1" width="100%" cellpadding="12" cellspacing="0">
+            <thead>
+              <tr><th scope="col">Mon</th><th scope="col">Tue</th><th scope="col">Wed</th><th scope="col">Thu</th><th scope="col">Fri</th><th scope="col">Sat</th><th scope="col">Sun</th></tr>
+            </thead>
+            <tbody>
+              <tr><td></td><td></td><td></td><td></td><td></td><td></td><td>1</td></tr>
+              <tr><td>2<br>Club Meeting</td><td>3<br>BI Midterm</td><td>4</td><td>5<br>HTML Interface Due</td><td>6<br>Career Fair</td><td>7</td><td>8</td></tr>
+              <tr>
+                <td valign="top">9<ul><li>Study Group</li><li>Math Practice</li><li>Club Meeting</li></ul></td>
+                <td valign="top">10<ul><li>Library Workshop</li><li>Read Essay Draft</li></ul></td>
+                <td valign="top">11<ul><li>M7 Assignment</li><li>Project Check-in</li><li>Review Lecture Notes</li></ul></td>
+                <td valign="top">12<ul><li>Project Meeting</li><li>Prepare Slides</li></ul></td>
+                <td valign="top">13<ul><li>Guest Lecture</li><li>Quiz Review</li></ul></td>
+                <td valign="top">14<ul><li>Club Event Prep</li><li>Read Chapter 5</li></ul></td>
+                <td valign="top">15<ul><li>Homework 4 Due</li><li>Weekly Planning</li></ul></td>
+              </tr>
+              <tr><td>16</td><td>17<br>Resume Workshop</td><td>18</td><td>19</td><td>20<br>AI Assignment Due</td><td>21</td><td>22</td></tr>
+              <tr><td>23</td><td>24<br>Team Presentation</td><td>25</td><td>26<br>Accounting Assignment Due</td><td>27<br>Volunteer Day</td><td>28</td><td>29</td></tr>
+              <tr><td>30<br>Exam Prep</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+          <details>
+            <summary>Add Event</summary>
+            <form action="calendar.html" method="get">
+              <p><label for="event-title">Title</label> <input id="event-title" type="text" required></p>
+              <p><label for="event-date">Date</label> <input id="event-date" type="date" required></p>
+              <button type="submit">Save</button>
+            </form>
+          </details>
+        </td>
+      </tr>
+    </table>
+  </main>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campusly | Home</title>
+</head>
+<body>
+  <!-- HTML-only prototype: no CSS and no JavaScript. -->
+  <header>
+  <table width="100%" cellpadding="12" cellspacing="0">
+    <tr>
+      <td width="25%" valign="middle"><a href="index.html"><img src="assets/campusly-logo.png" alt="Campusly logo" width="65" height="45"></a> <big><b>Campusly</b></big></td>
+      <td width="28%" valign="middle"><form action="index.html#feed" method="get"><label for="search">Search:</label> <input id="search" name="q" type="search" placeholder="Search posts"> <button type="submit">Search</button></form></td>
+      <td valign="middle"><nav><a href="index.html">Home</a> &nbsp; | &nbsp; <a href="todo.html">To Do</a> &nbsp; | &nbsp; <a href="calendar.html">Calendar</a></nav></td>
+      <td align="right" valign="middle"><a href="login.html">Log In</a></td>
+    </tr>
+  </table>
+  <hr>
+  </header>
+  <main id="home">
+    <table width="100%" border="1" cellpadding="15" cellspacing="8">
+      <tr>
+        <td width="62%" valign="top" id="feed">
+          <h1>Campus Feed</h1>
+          <hr>
+          <article>
+            <h3>👤 Alex Chen</h3>
+            <small>2h ago · Class</small>
+            <h2>Hey! No class today!! 🎉</h2>
+            <p>Our professor just announced that today's class is cancelled.<br>Enjoy the day off!</p>
+            <p><a href="#feed">♡ Like (24)</a> &nbsp; | &nbsp; <a href="#feed">👍 (18)</a> &nbsp; | &nbsp; <a href="#feed">Comment</a></p>
+          </article>
+          <hr>
+          <article>
+            <h3>👤 Sofia Kim</h3>
+            <small>4h ago · Class</small>
+            <h2>Did you finish homework?</h2>
+            <p>I'm still working on the problem set. Did anyone finish it already?<br>Let me know if you need a study partner!</p>
+            <p><a href="#feed">👍 Like (7)</a> &nbsp; | &nbsp; <a href="#feed">Comment (4)</a></p>
+          </article>
+          <hr>
+          <article>
+            <h3>👤 Daniel Park</h3>
+            <small>6h ago · Campus</small>
+            <h2>Free popcorn at student association!! 🍿</h2>
+            <p>The student association is giving out free popcorn at the main building lobby right now! Come grab some!</p>
+            <p><a href="#feed">♡ Like (32)</a> &nbsp; | &nbsp; <a href="#feed">👏 (15)</a> &nbsp; | &nbsp; <a href="#feed">Comment</a></p>
+          </article>
+        </td>
+        <td width="38%" valign="top">
+          <section id="todo">
+            <h1><a href="todo.html">To Do</a></h1>
+            <form>
+              <table width="100%" cellpadding="6">
+                <tr><td><label><input type="checkbox"> Finish math homework</label></td><td align="right">Oct 27</td></tr>
+                <tr><td><label><input type="checkbox"> Read essay draft</label></td><td align="right">Oct 29</td></tr>
+                <tr><td><label><input type="checkbox"> Study for midterm</label></td><td align="right">Nov 3</td></tr>
+                <tr><td><label><input type="checkbox"> Group project meeting</label></td><td align="right">Nov 5</td></tr>
+                <tr><td><label><input type="checkbox"> Club event preparation</label></td><td align="right">Nov 7</td></tr>
+              </table>
+              <p><button type="button" disabled>Add Task (coming soon)</button></p>
+            </form>
+          </section>
+          <hr>
+          <section id="calendar">
+            <h1><a href="calendar.html">Calendar</a></h1>
+            <p align="center"><b>October 2024 (sample)</b></p>
+            <table border="1" cellpadding="7" cellspacing="0" width="100%">
+              <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+              <tr align="center"><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td></tr>
+            </table>
+            <p>🔵 <b>10:00 AM – 12:00 PM</b><br>&nbsp;&nbsp;&nbsp;&nbsp;Club Meeting — SE2, Great Hall</p>
+            <p>🟢 <b>2:00 PM – 3:00 PM</b><br>&nbsp;&nbsp;&nbsp;&nbsp;Study Group — Library Room 3</p>
+            <p>🔴 <b>6:00 PM – 8:00 PM</b><br>&nbsp;&nbsp;&nbsp;&nbsp;Karaoke Night — Student Lounge</p>
+          </section>
+        </td>
+      </tr>
+    </table>
+  </main>
+</body>
+</html>

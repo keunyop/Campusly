@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campusly | Calendar Week</title>
+</head>
+<body>
+  <header>
+  <table width="100%" cellpadding="12" cellspacing="0">
+    <tr>
+      <td width="25%" valign="middle"><a href="index.html"><img src="assets/campusly-logo.png" alt="Campusly logo" width="65" height="45"></a> <big><b>Campusly</b></big></td>
+      <td width="28%" valign="middle"><form action="index.html#feed" method="get"><label for="search">Search:</label> <input id="search" name="q" type="search" placeholder="Search posts"> <button type="submit">Search</button></form></td>
+      <td valign="middle"><nav><a href="index.html">Home</a> &nbsp; | &nbsp; <a href="todo.html">To Do</a> &nbsp; | &nbsp; <a href="calendar.html">Calendar</a></nav></td>
+      <td align="right" valign="middle"><a href="login.html">Log In</a></td>
+    </tr>
+  </table>
+  <hr>
+  </header>
+  <main>
+    <table width="100%" border="1" cellpadding="15" cellspacing="8">
+      <tr>
+        <td valign="top">
+          <h1>Calendar</h1>
+          <hr>
+          <h2>November 9–15, 2026</h2>
+          <p><a href="calendar.html">Month</a> | <a href="calendar-week.html" aria-current="page"><b>Week</b></a></p>
+          <table border="1" width="100%" cellpadding="12" cellspacing="0">
+            <thead>
+              <tr><th scope="col">Mon<br>9</th><th scope="col">Tue<br>10</th><th scope="col">Wed<br>11</th><th scope="col">Thu<br>12</th><th scope="col">Fri<br>13</th><th scope="col">Sat<br>14</th><th scope="col">Sun<br>15</th></tr>
+            </thead>
+            <tbody>
+              <tr height="150">
+                <td valign="top"><ul><li>Study Group</li><li>Math Practice</li><li>Club Meeting</li></ul></td>
+                <td valign="top"><ul><li>Library Workshop</li><li>Read Essay Draft</li></ul></td>
+                <td valign="top"><ul><li>M7 Assignment</li><li>Project Check-in</li><li>Review Lecture Notes</li></ul></td>
+                <td valign="top"><ul><li>Project Meeting</li><li>Prepare Slides</li></ul></td>
+                <td valign="top"><ul><li>Guest Lecture</li><li>Quiz Review</li></ul></td>
+                <td valign="top"><ul><li>Club Event Prep</li><li>Read Chapter 5</li></ul></td>
+                <td valign="top"><ul><li>Homework 4 Due</li><li>Weekly Planning</li></ul></td>
+              </tr>
+            </tbody>
+          </table>
+          <details>
+            <summary>Add Event</summary>
+            <form action="calendar-week.html" method="get">
+              <p><label for="event-title">Title</label> <input id="event-title" type="text" required></p>
+              <p><label for="event-date">Date</label> <input id="event-date" type="date" required></p>
+              <button type="submit">Save</button>
+            </form>
+          </details>
+        </td>
+      </tr>
+    </table>
+  </main>
+</body>
+</html>
