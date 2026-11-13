@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151823">
+  <title>Campus signal | Campusly</title>
+  <meta name="description" content="A bold new view of the Campusly campus feed.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="smoke2.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="smoke2" data-page="home">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="smoke2.html"><span class="brand-mark" aria-hidden="true">C<span class="brand-spark">✳</span></span><span>campusly<span class="brand-period">.</span></span></a>
+      <div class="side-intro"><span class="side-intro-index">01 / THE NETWORK</span><p>Where campus<br>comes alive<span>.</span></p></div>
+      <p class="side-label">EXPLORE</p>
+      <nav class="side-nav" aria-label="Primary">
+        <a class="side-link" href="smoke2.html" aria-current="page"><span class="side-number">01</span> Campus feed <span class="side-arrow" aria-hidden="true">↗</span></a>
+        <a class="side-link" href="todo.html"><span class="side-number">02</span> To do <span class="side-arrow" aria-hidden="true">↗</span></a>
+        <a class="side-link" href="calendar.html"><span class="side-number">03</span> Calendar <span class="side-arrow" aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="side-bottom"><span class="side-bottom-orbit" aria-hidden="true">✳</span><p>Ideas, deadlines, and everything in between.</p><a href="smoke.html">View original concept <span aria-hidden="true">↗</span></a></div>
+    </aside>
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-context"><span class="live-dot" aria-hidden="true"></span><strong>THE CAMPUS SIGNAL</strong><span class="topbar-edition"> / YOUR DAILY DISPATCH</span></div>
+        <div class="topbar-actions">
+          <form class="topbar-search" action="smoke2.html" method="get" role="search">
+            <svg aria-hidden="true"><use href="assets/icons.svg#search"></use></svg>
+            <label class="sr-only" for="site-search">Search posts</label>
+            <input id="site-search" name="q" type="search" placeholder="Search the signal">
+          </form>
+          <a class="topbar-login" href="login.html">Log in <span aria-hidden="true">↗</span></a>
+        </div>
+      </header>
+      <main class="page">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-grain" aria-hidden="true"></div>
+          <div class="hero-content">
+            <p class="hero-kicker"><span class="hero-kicker-star" aria-hidden="true">✳</span> THE PLACE FOR WHAT'S HAPPENING</p>
+            <h1 id="hero-title">Your campus,<br><em>unfiltered.</em></h1>
+            <div class="hero-bottom"><p>Good conversations start here.<br>Find your people, catch the news, make your mark.</p><button class="button button-primary" type="button" data-open-dialog="post-dialog">Join the conversation <span aria-hidden="true">↗</span></button></div>
+          </div>
+          <div class="hero-stamp" aria-hidden="true"><span>YOUR<br>CAMPUS<br>IS LIVE</span><b>✳</b></div>
+          <span class="hero-index" aria-hidden="true">C / 01</span>
+        </section>
+
+        <div class="signal-strip" aria-hidden="true"><div>THE CAMPUS SIGNAL <span>✳</span> PEOPLE, PLANS &amp; EVERYTHING ELSE <span>✳</span> THE CAMPUS SIGNAL <span>✳</span> PEOPLE, PLANS &amp; EVERYTHING ELSE <span>✳</span></div></div>
+
+        <div class="page-grid">
+          <section class="feed-section" aria-label="Campus posts">
+            <div class="section-heading"><div><p class="section-index">01 / THE CONVERSATION</p><h2>What's the <em>word?</em></h2></div><span class="section-burst" aria-hidden="true">✳</span></div>
+            <button class="composer-trigger" type="button" data-open-dialog="post-dialog"><span class="avatar">YOU</span><span>Got something to share?</span><span class="composer-plus" aria-hidden="true">↗</span></button>
+            <div class="feed-toolbar"><div class="filter-row" role="group" aria-label="Filter posts">
+              <button class="filter-button" type="button" data-feed-filter="all" aria-pressed="true">All posts</button>
+              <button class="filter-button" type="button" data-feed-filter="Class" aria-pressed="false">Class</button>
+              <button class="filter-button" type="button" data-feed-filter="Campus" aria-pressed="false">Campus</button>
+            </div><span class="feed-count" id="feed-count"></span></div>
+            <div id="post-list" class="post-list" aria-live="polite"></div>
+            <noscript><p class="card">Enable JavaScript to view the sample feed and use the local prototype controls.</p></noscript>
+          </section>
+          <aside class="overview" aria-label="Your overview">
+            <div class="overview-heading"><span>02 / ON YOUR RADAR</span><span aria-hidden="true">↘</span></div>
+            <section class="card spotlight"><p class="eyebrow">UP NEXT</p><div id="next-deadline"></div></section>
+            <section class="card card-compact tasks-card"><div class="card-heading"><h2>Make it <em>happen.</em></h2><a class="text-link" href="todo.html">All tasks ↗</a></div><ul id="home-task-list" class="mini-task-list"></ul></section>
+            <section class="card card-compact agenda-card"><div class="card-heading"><h2>Around <em>campus.</em></h2><a class="text-link" href="calendar.html">Full calendar ↗</a></div><div id="home-agenda" class="agenda-list"></div></section>
+          </aside>
+        </div>
+        <footer class="site-footer"><span>CAMPUSLY <span aria-hidden="true">✳</span> MADE FOR CAMPUS LIFE</span><span>Prototype · Sample campus content</span></footer>
+      </main>
+    </div>
+  </div>
+  <dialog id="post-dialog" aria-labelledby="post-dialog-title">
+    <div class="dialog-heading"><h2 id="post-dialog-title">Say something.</h2><button class="button button-quiet button-icon" type="button" data-close-dialog aria-label="Close"><svg aria-hidden="true"><use href="assets/icons.svg#close"></use></svg></button></div>
+    <form id="post-form" class="form-grid">
+      <label class="field">Your name<input class="input" name="author" maxlength="40" placeholder="Your name" required></label>
+      <label class="field">Title<input class="input" name="title" maxlength="100" placeholder="What is your post about?" required></label>
+      <label class="field">Message<textarea class="textarea" name="body" maxlength="1000" placeholder="Add the details" required></textarea></label>
+      <label class="field">Community<select class="select" name="category"><option>Class</option><option>Campus</option></select></label>
+      <div class="form-actions"><button class="button button-secondary" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Publish post ↗</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
