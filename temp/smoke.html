@@ -1,0 +1,66 @@
+﻿<!doctype html><html><head><meta charset="utf-8"></head><body>
+<iframe id="frame" style="width:1200px;height:900px"></iframe><pre id="result">Running</pre>
+<script>
+(async function () {
+  const frame = document.getElementById("frame");
+  const checks = [];
+  function assert(name, condition) { checks.push({ name, pass: !!condition }); }
+  function open(path) {
+    return new Promise(resolve => {
+      frame.onload = () => resolve(frame.contentDocument);
+      frame.src = "../" + path;
+    });
+  }
+  localStorage.removeItem("campusly-posts-v1");
+  localStorage.removeItem("campusly-tasks-v1");
+  localStorage.removeItem("campusly-events-v1");
+  let doc = await open("index.html");
+  assert("feed seeds", doc.querySelectorAll(".post").length === 3);
+  doc.querySelector('[data-feed-filter="Class"]').click();
+  assert("feed filter", doc.querySelectorAll(".post").length === 2);
+  doc.querySelector('[data-feed-filter="all"]').click();
+  doc.querySelector('[data-open-dialog="post-dialog"]').click();
+  let form = doc.getElementById("post-form");
+  form.elements.author.value = "Tester";
+  form.elements.title.value = "Study note";
+  form.elements.body.value = "Meet in the library";
+  form.requestSubmit();
+  assert("post publish", doc.querySelectorAll(".post").length === 4 && doc.getElementById("post-dialog").open === false);
+  doc.querySelector("[data-like]").click();
+  assert("post like", doc.querySelector("[data-like]").getAttribute("aria-pressed") === "true");
+  doc = await open("todo.html");
+  assert("task seeds", doc.querySelectorAll(".task-row").length === 4);
+  doc.querySelector('[data-open-dialog="task-dialog"]').click();
+  form = doc.getElementById("task-form");
+  form.elements.title.value = "Test task";
+  form.elements.due.value = "2026-11-30";
+  form.requestSubmit();
+  assert("task add", doc.querySelectorAll(".task-row").length === 5);
+  let check = doc.querySelector(".task-row input[type=checkbox]");
+  check.click();
+  assert("task complete", doc.querySelectorAll(".task-row").length === 4);
+  doc = await open("calendar.html");
+  assert("month renders Sunday", doc.querySelectorAll(".calendar-day").length === 42 && doc.querySelectorAll(".day-head").length === 7);
+  doc.querySelector('[data-open-dialog="event-dialog"]').click();
+  form = doc.getElementById("event-form");
+  form.elements.title.value = "Test event";
+  form.elements.date.value = "2026-11-13";
+  form.elements.time.value = "12:00";
+  form.requestSubmit();
+  assert("event add", doc.getElementById("calendar-grid").textContent.includes("Test event"));
+  doc = await open("calendar-week.html");
+  assert("week renders", doc.querySelectorAll(".calendar-day").length === 7);
+  doc = await open("login.html");
+  form = doc.getElementById("login-form");
+  form.elements.email.value = "student@bcit.ca";
+  form.elements.password.value = "demo123";
+  form.requestSubmit();
+  assert("login honest status", doc.getElementById("login-status").textContent.includes("not connected"));
+  frame.style.width = "390px";
+  for (const page of ["index.html", "todo.html", "calendar.html", "calendar-week.html", "login.html"]) {
+    doc = await open(page);
+    assert("mobile width " + page, doc.documentElement.scrollWidth <= frame.contentWindow.innerWidth);
+  }
+  document.getElementById("result").textContent = JSON.stringify(checks);
+})().catch(error => document.getElementById("result").textContent = JSON.stringify({ error: error.message }));
+</script></body></html>

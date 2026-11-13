@@ -1,58 +1,62 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log In | Campusly</title>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fa">
+  <title>Log in | Campusly</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
 </head>
-<body bgcolor="#FFFFFF" text="#062A59" link="#0757C9" vlink="#0757C9">
-  <!-- HTML-only prototype. No CSS or JavaScript. Login requires a server-side authentication handler. -->
-  <header>
-  <table width="100%" cellpadding="12" cellspacing="0">
-    <tr>
-      <td width="25%" valign="middle"><a href="index.html"><img src="assets/campusly-logo.png" alt="Campusly logo" width="65" height="45"></a> <big><b>Campusly</b></big></td>
-      <td width="28%" valign="middle"><form action="index.html#feed" method="get"><label for="search">Search:</label> <input id="search" name="q" type="search" placeholder="Search posts"> <button type="submit">Search</button></form></td>
-      <td valign="middle"><nav><a href="index.html">Home</a> &nbsp; | &nbsp; <a href="todo.html">To Do</a> &nbsp; | &nbsp; <a href="calendar.html">Calendar</a></nav></td>
-      <td align="right" valign="middle"><a href="login.html">Log In</a></td>
-    </tr>
-  </table>
-  <hr>
-  </header>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr bgcolor="#FFCC00"><td height="12" colspan="3"></td></tr>
-    <tr><td colspan="3" height="65"></td></tr>
-    <tr>
-      <td width="44%" align="center" valign="middle">
-        <img src="assets/campusly-logo.png" alt="Campusly logo" width="390"><br>
-        <font face="Arial, sans-serif" color="#062A59" size="5">One App. Your Entire Campus.</font><br><br>
-        <font color="#FFCC00" size="6">━━━━</font>
-      </td>
-      <td width="3%" bgcolor="#E5EDF6">&nbsp;</td>
-      <td width="53%" valign="top" align="center">
-        <table width="80%" cellpadding="9" cellspacing="0" border="0">
-          <tr><td><font face="Arial, sans-serif" color="#062A59" size="6"><b>Log In to Campusly</b></font></td></tr>
-          <tr><td height="12"></td></tr>
-          <tr><td>
-            <form action="#" method="post">
-              <font face="Arial, sans-serif" size="4"><b>BCIT Email</b></font><br><br>
-              <input type="email" name="email" placeholder="e.g., student@bcit.ca" size="38" required><br><br><br>
-              <font face="Arial, sans-serif" size="4"><b>Password</b></font><br><br>
-              <input type="password" name="password" placeholder="Enter your password" size="38" required><br><br>
-              <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>
-                <td><label><input type="checkbox" name="remember"> <font face="Arial, sans-serif">Remember me</font></label></td>
-                <td align="right"><font face="Arial, sans-serif"><a href="#">Forgot your password?</a></font></td>
-              </tr></table><br><br>
-              <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center">
-                <input type="image" src="assets/login-button.png" alt="Log In" width="594" height="59">
-              </td></tr></table>
+<body data-page="login">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">C</span>Campusly</a>
+      <p class="side-label">Your campus</p>
+      <nav class="side-nav" aria-label="Primary">
+        <a class="side-link" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#home"></use></svg>Campus feed</a>
+        <a class="side-link" href="todo.html"><svg aria-hidden="true"><use href="assets/icons.svg#checklist"></use></svg>To do</a>
+        <a class="side-link" href="calendar.html"><svg aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg>Calendar</a>
+      </nav>
+      <div class="side-bottom"><p>Coursework, conversations and campus dates in one place.</p><a href="index.html">Explore the feed</a></div>
+    </aside>
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-context"><strong>Campusly</strong> <span class="muted">/ Log in</span></div>
+        <a class="mobile-brand" href="index.html">Campusly</a>
+        <div class="topbar-actions">
+          <form class="topbar-search" action="index.html" method="get" role="search"><svg aria-hidden="true"><use href="assets/icons.svg#search"></use></svg><label class="sr-only" for="site-search">Search posts</label><input id="site-search" name="q" type="search" placeholder="Search posts"></form>
+          <a class="topbar-login" href="index.html">Explore</a>
+        </div>
+      </header>
+      <main class="page">
+        <div class="login-layout">
+          <section class="login-story">
+            <p class="eyebrow">One place for campus life</p>
+            <h1>Class updates, tasks and dates, together</h1>
+            <p>Find the conversation, deadline or campus event you need without switching between notes.</p>
+            <div class="preview" aria-label="Campusly preview">
+              <div class="preview-heading"><span>This week on campus</span><span>Nov 13–20</span></div>
+              <div class="preview-row"><span class="rule-date">Quiz review</span><time>Fri 13</time></div>
+              <div class="preview-row"><span class="rule-date">Homework 4 due</span><time>Sun 15</time></div>
+              <div class="preview-row"><span class="rule-date">AI assignment due</span><time>Fri 20</time></div>
+            </div>
+          </section>
+          <section class="login-card" aria-labelledby="login-title">
+            <p class="eyebrow">Your campus account</p>
+            <h2 id="login-title">Log in to Campusly</h2>
+            <p>Use your campus email to access your space.</p>
+            <form id="login-form" class="form-grid">
+              <label class="field">BCIT email<input class="input" name="email" type="email" autocomplete="email" placeholder="student@bcit.ca" required></label>
+              <label class="field">Password<input class="input" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required></label>
+              <label style="display:flex;align-items:center;gap:8px;color:var(--secondary);font-size:14px"><input type="checkbox" name="remember">Remember me</label>
+              <button class="button button-primary" type="submit">Log in</button>
+              <p id="login-status" class="status-message" role="status"></p>
             </form>
-          </td></tr>
-        </table>
-      </td>
-    </tr>
-    <tr><td colspan="3" height="110"></td></tr>
-    <tr bgcolor="#062A59"><td colspan="3" height="16"></td></tr>
-    <tr bgcolor="#FFCC00"><td colspan="3" height="8"></td></tr>
-  </table>
+            <p class="login-note">This is a local prototype. Account sign-in is not connected yet; you can explore the sample feed, tasks and calendar without logging in.</p>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
 </body>
 </html>
