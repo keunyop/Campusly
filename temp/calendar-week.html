@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fa">
+  <title>Calendar | Campusly</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+</head>
+<body data-page="calendar-week">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="smoke.html"><span class="brand-mark" aria-hidden="true">C</span>Campusly</a>
+      <p class="side-label">Your campus</p>
+      <nav class="side-nav" aria-label="Primary">
+        <a class="side-link" href="smoke.html"><svg aria-hidden="true"><use href="assets/icons.svg#home"></use></svg>Campus feed</a>
+        <a class="side-link" href="todo.html"><svg aria-hidden="true"><use href="assets/icons.svg#checklist"></use></svg>To do</a>
+        <a class="side-link" href="calendar.html" aria-current="page"><svg aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg>Calendar</a>
+      </nav>
+      <div class="side-bottom"><p>Coursework, conversations and campus dates in one place.</p><a href="login.html">Log in to Campusly</a></div>
+    </aside>
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-context"><strong>Calendar</strong> <span class="muted">/ November 2026</span></div>
+        <a class="mobile-brand" href="smoke.html">Campusly</a>
+        <div class="topbar-actions">
+          <form class="topbar-search" action="smoke.html" method="get" role="search"><svg aria-hidden="true"><use href="assets/icons.svg#search"></use></svg><label class="sr-only" for="site-search">Search posts</label><input id="site-search" name="q" type="search" placeholder="Search posts"></form>
+          <a class="topbar-login" href="login.html">Log in</a>
+        </div>
+      </header>
+      <main class="page">
+        <div class="page-heading">
+          <div><p class="eyebrow">Campusly / Your schedule</p><h1>Calendar</h1><p class="page-subtitle">Course deadlines and campus events at a glance</p></div>
+          <button class="button button-primary" type="button" data-open-dialog="event-dialog"><svg aria-hidden="true"><use href="assets/icons.svg#plus"></use></svg>Add event</button>
+        </div>
+        <div class="calendar-toolbar">
+          <div class="calendar-nav"><button class="button button-secondary button-icon" type="button" id="calendar-prev" aria-label="Previous week"><svg aria-hidden="true"><use href="assets/icons.svg#chevron-left"></use></svg></button><h2 class="calendar-title" id="calendar-title">November 2026</h2><button class="button button-secondary button-icon" type="button" id="calendar-next" aria-label="Next week"><svg aria-hidden="true"><use href="assets/icons.svg#chevron-right"></use></svg></button></div>
+          <nav class="view-switch" aria-label="Calendar view"><a href="calendar.html">Month</a><a href="calendar-week.html" aria-current="page">Week</a></nav>
+        </div>
+        <div class="page-grid">
+          <section class="card" aria-label="Weekly calendar"><div class="calendar-scroll"><div id="calendar-grid" class="calendar-grid"></div></div><p class="calendar-note">Scroll sideways to see all days on a small screen.</p><noscript><p>Enable JavaScript to view the sample calendar.</p></noscript></section>
+          <aside class="stack">
+            <section class="card card-compact"><div class="card-heading"><h2>In this view</h2><span class="muted" id="agenda-period"></span></div><div id="calendar-agenda" class="agenda-list"></div></section>
+            <section class="card card-compact"><div class="card-heading"><h2>Keep it together</h2></div><p class="muted" style="margin:0">Add dates here, then check your assignments in <a class="text-link" href="todo.html">To do</a>.</p></section>
+          </aside>
+        </div>
+        <footer class="site-footer">Events are saved in this browser for this prototype.</footer>
+      </main>
+    </div>
+  </div>
+  <dialog id="event-dialog" aria-labelledby="event-dialog-title">
+    <div class="dialog-heading"><h2 id="event-dialog-title">Add an event</h2><button class="button button-quiet button-icon" type="button" data-close-dialog aria-label="Close"><svg aria-hidden="true"><use href="assets/icons.svg#close"></use></svg></button></div>
+    <form id="event-form" class="form-grid">
+      <label class="field">Event title<input class="input" name="title" maxlength="100" placeholder="e.g. Study group" required></label>
+      <div class="form-row"><label class="field">Date<input class="input" name="date" type="date" required></label><label class="field">Time<input class="input" name="time" type="time" required></label></div>
+      <label class="field">Type<select class="select" name="kind"><option value="event">Campus event</option><option value="assignment">Assignment</option></select></label>
+      <div class="form-actions"><button class="button button-secondary" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Save event</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

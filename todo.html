@@ -1,61 +1,43 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f7fa">
-  <title>To do | Campusly</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campusly - To Do</title>
+  <link rel="icon" type="image/png" href="assets/campusly-logo.png">
 </head>
-<body data-page="todo">
-  <div class="app-shell">
-    <aside class="sidebar" aria-label="Main navigation">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">C</span>Campusly</a>
-      <p class="side-label">Your campus</p>
-      <nav class="side-nav" aria-label="Primary">
-        <a class="side-link" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#home"></use></svg>Campus feed</a>
-        <a class="side-link" href="todo.html" aria-current="page"><svg aria-hidden="true"><use href="assets/icons.svg#checklist"></use></svg>To do</a>
-        <a class="side-link" href="calendar.html"><svg aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg>Calendar</a>
-      </nav>
-      <div class="side-bottom"><p>Coursework, conversations and campus dates in one place.</p><a href="login.html">Log in to Campusly</a></div>
-    </aside>
-    <div class="app-main">
-      <header class="topbar">
-        <div class="topbar-context"><strong>To do</strong> <span class="muted">/ Coursework</span></div>
-        <a class="mobile-brand" href="index.html">Campusly</a>
-        <div class="topbar-actions">
-          <form class="topbar-search" action="index.html" method="get" role="search"><svg aria-hidden="true"><use href="assets/icons.svg#search"></use></svg><label class="sr-only" for="site-search">Search posts</label><input id="site-search" name="q" type="search" placeholder="Search posts"></form>
-          <a class="topbar-login" href="login.html">Log in</a>
-        </div>
-      </header>
-      <main class="page">
-        <div class="page-heading">
-          <div><p class="eyebrow">Campusly / Coursework</p><h1>To do</h1><p class="page-subtitle">Keep track of what needs your attention</p></div>
-          <button class="button button-primary" type="button" data-open-dialog="task-dialog"><svg aria-hidden="true"><use href="assets/icons.svg#plus"></use></svg>Add task</button>
-        </div>
-        <div class="stack">
-          <section class="card task-summary" aria-label="Task progress"><div class="task-summary-number" id="task-open-count">0</div><div class="task-summary-copy"><h2 style="margin:0">Tasks to finish</h2><p id="task-progress-label"></p><div class="progress-track" role="progressbar" id="task-progress" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="task-progress-fill"></div></div></div></section>
-          <section class="card">
-            <div class="task-toolbar"><div><h2 style="margin:0 0 4px">My tasks</h2><p class="muted" style="margin:0">Assignment deadlines and personal reminders</p></div><div class="filter-row" role="group" aria-label="Filter tasks">
-              <button class="filter-button" type="button" data-task-filter="open" aria-pressed="true">Open</button>
-              <button class="filter-button" type="button" data-task-filter="all" aria-pressed="false">All</button>
-              <button class="filter-button" type="button" data-task-filter="done" aria-pressed="false">Completed</button>
-            </div></div>
-            <ul id="task-list" class="task-list" aria-live="polite"></ul>
-            <noscript><p>Enable JavaScript to view and update your sample tasks.</p></noscript>
-          </section>
-        </div>
-        <footer class="site-footer">Tasks are saved in this browser for this prototype.</footer>
-      </main>
-    </div>
-  </div>
-  <dialog id="task-dialog" aria-labelledby="task-dialog-title">
-    <div class="dialog-heading"><h2 id="task-dialog-title">Add a task</h2><button class="button button-quiet button-icon" type="button" data-close-dialog aria-label="Close"><svg aria-hidden="true"><use href="assets/icons.svg#close"></use></svg></button></div>
-    <form id="task-form" class="form-grid">
-      <label class="field">Task name<input class="input" name="title" maxlength="100" placeholder="e.g. Review lecture notes" required></label>
-      <label class="field">Due date<input class="input" name="due" type="date" required></label>
-      <div class="form-actions"><button class="button button-secondary" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Add task</button></div>
-    </form>
-  </dialog>
+<body>
+
+  <header>
+  <table width="100%" cellpadding="12" cellspacing="0">
+    <tr>
+      <td width="25%" valign="middle"><a href="index.html"><img src="assets/campusly-logo.png" alt="Campusly logo" width="65" height="45"></a> <big><b>Campusly</b></big></td>
+      <td width="28%" valign="middle"><form action="index.html#feed" method="get"><label for="search">Search:</label> <input id="search" name="q" type="search" placeholder="Search posts"> <button type="submit">Search</button></form></td>
+      <td valign="middle"><nav><a href="index.html">Home</a> &nbsp; | &nbsp; <a href="todo.html">To Do</a> &nbsp; | &nbsp; <a href="calendar.html">Calendar</a></nav></td>
+      <td align="right" valign="middle"><a href="login.html">Log In</a></td>
+    </tr>
+  </table>
+  <hr>
+  </header>
+
+  <main>
+    <table width="100%" border="1" cellpadding="15" cellspacing="8">
+      <tr>
+        <td valign="top">
+          <h1>To Do</h1>
+          <hr>
+          <h2>My Tasks</h2>
+          <ul>
+            <li><input type="checkbox" id="task1"><label for="task1"> Finish AI Assignment</label> — Nov 20</li>
+            <li><input type="checkbox" id="task2" checked><label for="task2"> HTML Interface Due</label> — Nov 5</li>
+            <li><input type="checkbox" id="task3"><label for="task3"> M7 Assignment</label> — Nov 11</li>
+            <li><input type="checkbox" id="task4"><label for="task4"> Homework 4</label> — Nov 15</li>
+            <li><input type="checkbox" id="task5"><label for="task5"> Accounting Assignment</label> — Nov 26</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </main>
+
 </body>
 </html>

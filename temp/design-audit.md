@@ -24,7 +24,7 @@ Based on the [unslop skill](https://github.com/heydamir/unslop) by Damir Sokolov
 
 ## Implementation notes
 
-Use one shared responsive shell and stylesheet across the five existing pages. Keep the feed, task list, month and week calendar, and login form. Make local prototype interactions work without suggesting there is a server-side account system.
+The redesign is an isolated preview in `temp/`. Open `smoke.html` for its feed; the task list, month and week calendar, and login form link to other pages in this folder. The root pages retain their original design. Local prototype interactions work without suggesting there is a server-side account system.
 
 ## Pass report
 
@@ -38,4 +38,4 @@ Use one shared responsive shell and stylesheet across the five existing pages. K
 8. **Visuals:** Real task and event content forms the visual focus. The login screen previews an actual week of campus work.
 9. **Motion:** Only short hover, press and progress transitions remain, with reduced-motion support.
 
-Verification: Chrome rendered the home, task, calendar and login screens. The browser smoke page checks feed filters, publishing and liking, task creation and completion, calendar rendering and event creation, and the prototype login message.
+Verification: Chrome rendered the home, task, calendar and login screens. `ui-smoke-test.html` checks feed filters, publishing and liking, task creation and completion, calendar rendering and event creation, and the prototype login message.

@@ -1,66 +1,74 @@
-﻿<!doctype html><html><head><meta charset="utf-8"></head><body>
-<iframe id="frame" style="width:1200px;height:900px"></iframe><pre id="result">Running</pre>
-<script>
-(async function () {
-  const frame = document.getElementById("frame");
-  const checks = [];
-  function assert(name, condition) { checks.push({ name, pass: !!condition }); }
-  function open(path) {
-    return new Promise(resolve => {
-      frame.onload = () => resolve(frame.contentDocument);
-      frame.src = "../" + path;
-    });
-  }
-  localStorage.removeItem("campusly-posts-v1");
-  localStorage.removeItem("campusly-tasks-v1");
-  localStorage.removeItem("campusly-events-v1");
-  let doc = await open("index.html");
-  assert("feed seeds", doc.querySelectorAll(".post").length === 3);
-  doc.querySelector('[data-feed-filter="Class"]').click();
-  assert("feed filter", doc.querySelectorAll(".post").length === 2);
-  doc.querySelector('[data-feed-filter="all"]').click();
-  doc.querySelector('[data-open-dialog="post-dialog"]').click();
-  let form = doc.getElementById("post-form");
-  form.elements.author.value = "Tester";
-  form.elements.title.value = "Study note";
-  form.elements.body.value = "Meet in the library";
-  form.requestSubmit();
-  assert("post publish", doc.querySelectorAll(".post").length === 4 && doc.getElementById("post-dialog").open === false);
-  doc.querySelector("[data-like]").click();
-  assert("post like", doc.querySelector("[data-like]").getAttribute("aria-pressed") === "true");
-  doc = await open("todo.html");
-  assert("task seeds", doc.querySelectorAll(".task-row").length === 4);
-  doc.querySelector('[data-open-dialog="task-dialog"]').click();
-  form = doc.getElementById("task-form");
-  form.elements.title.value = "Test task";
-  form.elements.due.value = "2026-11-30";
-  form.requestSubmit();
-  assert("task add", doc.querySelectorAll(".task-row").length === 5);
-  let check = doc.querySelector(".task-row input[type=checkbox]");
-  check.click();
-  assert("task complete", doc.querySelectorAll(".task-row").length === 4);
-  doc = await open("calendar.html");
-  assert("month renders Sunday", doc.querySelectorAll(".calendar-day").length === 42 && doc.querySelectorAll(".day-head").length === 7);
-  doc.querySelector('[data-open-dialog="event-dialog"]').click();
-  form = doc.getElementById("event-form");
-  form.elements.title.value = "Test event";
-  form.elements.date.value = "2026-11-13";
-  form.elements.time.value = "12:00";
-  form.requestSubmit();
-  assert("event add", doc.getElementById("calendar-grid").textContent.includes("Test event"));
-  doc = await open("calendar-week.html");
-  assert("week renders", doc.querySelectorAll(".calendar-day").length === 7);
-  doc = await open("login.html");
-  form = doc.getElementById("login-form");
-  form.elements.email.value = "student@bcit.ca";
-  form.elements.password.value = "demo123";
-  form.requestSubmit();
-  assert("login honest status", doc.getElementById("login-status").textContent.includes("not connected"));
-  frame.style.width = "390px";
-  for (const page of ["index.html", "todo.html", "calendar.html", "calendar-week.html", "login.html"]) {
-    doc = await open(page);
-    assert("mobile width " + page, doc.documentElement.scrollWidth <= frame.contentWindow.innerWidth);
-  }
-  document.getElementById("result").textContent = JSON.stringify(checks);
-})().catch(error => document.getElementById("result").textContent = JSON.stringify({ error: error.message }));
-</script></body></html>
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fa">
+  <title>Campus feed | Campusly</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-page="home">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="smoke.html"><span class="brand-mark" aria-hidden="true">C</span>Campusly</a>
+      <p class="side-label">Your campus</p>
+      <nav class="side-nav" aria-label="Primary">
+        <a class="side-link" href="smoke.html" aria-current="page"><svg aria-hidden="true"><use href="assets/icons.svg#home"></use></svg>Campus feed</a>
+        <a class="side-link" href="todo.html"><svg aria-hidden="true"><use href="assets/icons.svg#checklist"></use></svg>To do</a>
+        <a class="side-link" href="calendar.html"><svg aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg>Calendar</a>
+      </nav>
+      <div class="side-bottom"><p>Coursework, conversations and campus dates in one place.</p><a href="login.html">Log in to Campusly</a></div>
+    </aside>
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-context"><strong>Campus feed</strong> <span class="muted">/ November 2026</span></div>
+        <a class="mobile-brand" href="smoke.html">Campusly</a>
+        <div class="topbar-actions">
+          <form class="topbar-search" action="smoke.html" method="get" role="search">
+            <svg aria-hidden="true"><use href="assets/icons.svg#search"></use></svg>
+            <label class="sr-only" for="site-search">Search posts</label>
+            <input id="site-search" name="q" type="search" placeholder="Search posts">
+          </form>
+          <a class="topbar-login" href="login.html">Log in</a>
+        </div>
+      </header>
+      <main class="page">
+        <div class="page-heading">
+          <div><p class="eyebrow">Campusly / Community</p><h1>Campus feed</h1><p class="page-subtitle">Conversations from class and around campus</p></div>
+          <button class="button button-primary" type="button" data-open-dialog="post-dialog"><svg aria-hidden="true"><use href="assets/icons.svg#plus"></use></svg>Write a post</button>
+        </div>
+        <div class="page-grid">
+          <section class="stack" aria-label="Campus posts">
+            <button class="composer-trigger" type="button" data-open-dialog="post-dialog"><span class="avatar">You</span><span>Share something with your campus</span></button>
+            <div class="feed-toolbar"><div class="filter-row" role="group" aria-label="Filter posts">
+              <button class="filter-button" type="button" data-feed-filter="all" aria-pressed="true">All posts</button>
+              <button class="filter-button" type="button" data-feed-filter="Class" aria-pressed="false">Class</button>
+              <button class="filter-button" type="button" data-feed-filter="Campus" aria-pressed="false">Campus</button>
+            </div><span class="feed-count" id="feed-count"></span></div>
+            <div id="post-list" class="post-list" aria-live="polite"></div>
+            <noscript><p class="card">Enable JavaScript to view the sample feed and use the local prototype controls.</p></noscript>
+          </section>
+          <aside class="stack" aria-label="Your overview">
+            <section class="card spotlight"><p class="eyebrow">Next deadline</p><div id="next-deadline"></div></section>
+            <section class="card card-compact"><div class="card-heading"><h2>To do</h2><a class="text-link" href="todo.html">View all</a></div><ul id="home-task-list" class="mini-task-list"></ul></section>
+            <section class="card card-compact"><div class="card-heading"><h2>Coming up</h2><a class="text-link" href="calendar.html">Calendar</a></div><div id="home-agenda" class="agenda-list"></div></section>
+          </aside>
+        </div>
+        <footer class="site-footer">Campusly prototype · Sample campus content</footer>
+      </main>
+    </div>
+  </div>
+  <dialog id="post-dialog" aria-labelledby="post-dialog-title">
+    <div class="dialog-heading"><h2 id="post-dialog-title">Write a post</h2><button class="button button-quiet button-icon" type="button" data-close-dialog aria-label="Close"><svg aria-hidden="true"><use href="assets/icons.svg#close"></use></svg></button></div>
+    <form id="post-form" class="form-grid">
+      <label class="field">Your name<input class="input" name="author" maxlength="40" placeholder="Your name" required></label>
+      <label class="field">Title<input class="input" name="title" maxlength="100" placeholder="What is your post about?" required></label>
+      <label class="field">Message<textarea class="textarea" name="body" maxlength="1000" placeholder="Add the details" required></textarea></label>
+      <label class="field">Community<select class="select" name="category"><option>Class</option><option>Campus</option></select></label>
+      <div class="form-actions"><button class="button button-secondary" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Publish post</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

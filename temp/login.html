@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fa">
+  <title>Log in | Campusly</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+</head>
+<body data-page="login">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="smoke.html"><span class="brand-mark" aria-hidden="true">C</span>Campusly</a>
+      <p class="side-label">Your campus</p>
+      <nav class="side-nav" aria-label="Primary">
+        <a class="side-link" href="smoke.html"><svg aria-hidden="true"><use href="assets/icons.svg#home"></use></svg>Campus feed</a>
+        <a class="side-link" href="todo.html"><svg aria-hidden="true"><use href="assets/icons.svg#checklist"></use></svg>To do</a>
+        <a class="side-link" href="calendar.html"><svg aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg>Calendar</a>
+      </nav>
+      <div class="side-bottom"><p>Coursework, conversations and campus dates in one place.</p><a href="smoke.html">Explore the feed</a></div>
+    </aside>
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-context"><strong>Campusly</strong> <span class="muted">/ Log in</span></div>
+        <a class="mobile-brand" href="smoke.html">Campusly</a>
+        <div class="topbar-actions">
+          <form class="topbar-search" action="smoke.html" method="get" role="search"><svg aria-hidden="true"><use href="assets/icons.svg#search"></use></svg><label class="sr-only" for="site-search">Search posts</label><input id="site-search" name="q" type="search" placeholder="Search posts"></form>
+          <a class="topbar-login" href="smoke.html">Explore</a>
+        </div>
+      </header>
+      <main class="page">
+        <div class="login-layout">
+          <section class="login-story">
+            <p class="eyebrow">One place for campus life</p>
+            <h1>Class updates, tasks and dates, together</h1>
+            <p>Find the conversation, deadline or campus event you need without switching between notes.</p>
+            <div class="preview" aria-label="Campusly preview">
+              <div class="preview-heading"><span>This week on campus</span><span>Nov 13–20</span></div>
+              <div class="preview-row"><span class="rule-date">Quiz review</span><time>Fri 13</time></div>
+              <div class="preview-row"><span class="rule-date">Homework 4 due</span><time>Sun 15</time></div>
+              <div class="preview-row"><span class="rule-date">AI assignment due</span><time>Fri 20</time></div>
+            </div>
+          </section>
+          <section class="login-card" aria-labelledby="login-title">
+            <p class="eyebrow">Your campus account</p>
+            <h2 id="login-title">Log in to Campusly</h2>
+            <p>Use your campus email to access your space.</p>
+            <form id="login-form" class="form-grid">
+              <label class="field">BCIT email<input class="input" name="email" type="email" autocomplete="email" placeholder="student@bcit.ca" required></label>
+              <label class="field">Password<input class="input" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required></label>
+              <label style="display:flex;align-items:center;gap:8px;color:var(--secondary);font-size:14px"><input type="checkbox" name="remember">Remember me</label>
+              <button class="button button-primary" type="submit">Log in</button>
+              <p id="login-status" class="status-message" role="status"></p>
+            </form>
+            <p class="login-note">This is a local prototype. Account sign-in is not connected yet; you can explore the sample feed, tasks and calendar without logging in.</p>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
